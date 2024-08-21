@@ -22,16 +22,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
         return view('home');
     }
+
+    // Fetch all doctor information
     public function doctors()
     {
-        // Fetch all doctor information
         $doctor_info = addDoctor::all();
+    
         return view('Doctors.doctors',compact('doctor_info'));
     }
+
     public function addDoctor()
     {
         return view('Doctors.add-doctor');
@@ -49,15 +53,24 @@ class HomeController extends Controller
 
     }
 
-    public function deleteDoctor($id){
-        $find_doctor = addDoctor::find($id);
-        $find_doctor -> delete();
-        return back()->with('danger','Doctor Deleted Successfully');
+    // public function deleteDoctor(){
+       
+    //     return back()->with('danger','Doctor Deleted Successfully');
 
-    }
+    // }
 
     public function editDoctor($id){
         $to_be_edited = addDoctor::find($id);
         return view('Doctors.edit',compact('to_be_edited'));
     }
+
+    public function deleteDoctor($id){
+
+    $delete_doctor = addDoctor::find($id);
+    $delete_doctor->delete();
+    return back()->with('danger','Doctor Deleted Successfully');
+
+    }
+
+ 
 }

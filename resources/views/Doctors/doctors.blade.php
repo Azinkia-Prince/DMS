@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('doctors.edit')
 
 @section('doctors-list')
     <div class="container">
@@ -52,39 +51,49 @@
                             <td>{{ $view_doctor_info->section }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    <a href="/doctors/{{$view_doctor_info->id}}/edit" class="btn btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop1">Update</a>
-                                    <button class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop2">Delete</button>
+                                    <a href="/doctors/{{ $view_doctor_info->id }}/edit" class="btn btn-warning">Update</a>
 
-                                    @yield('edit-doctor')
-                                    
+                                    <a href="#" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#deleteConfirmation"
+                                        onclick="setModalUrl('/doctors/{{ $view_doctor_info->id }}/delete')">Delete</a>
 
 
                                     <!-- Delete Modal -->
-
-                                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static"
-                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog">
+                                    <div class="modal fade" id="deleteConfirmation" data-backdrop="static" tabindex="-1"
+                                        role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Warning !</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                                                    <h5 class="modal-title" id="confirmationModalLabel">Confirm Deletion
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    </button>
                                                 </div>
+
                                                 <div class="modal-body">
-                                                    <h5 style="color: red">Do you want to delete?</h5>
+                                                    Do you really want to delete?
                                                 </div>
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <a href="/doctors/{{ $view_doctor_info->id }}/delete" class="btn btn-danger">Delete</a>
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-danger" id="confirmButton">Yes,
+                                                        Delete</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {{-- delete button script --}}
+
+                                    <script>
+                                        function setModalUrl(url) {
+                                            document.getElementById("confirmButton").onclick = function() {
+                                                window.location.href = url;
+                                            };
+                                        }
+                                    </script>
 
 
                                 </div>
@@ -96,4 +105,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection
