@@ -35,6 +35,18 @@
                     <ul class="navbar-nav ms-5">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               Records
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/doctors/sections">Doctor Sections</a>
+                                <a class="dropdown-item" href="#">Demo</a>
+                                <a class="dropdown-item" href="#">Demo</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                Doctor
                             </a>
 
@@ -124,6 +136,8 @@
             @yield('doctors-list')
             @yield('add-doctor')
             @yield('edit-doctor')
+            @yield('doc-section')
+            @yield('status-alert')
         </main>
     </div>
 </body>

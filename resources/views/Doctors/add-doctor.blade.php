@@ -31,8 +31,11 @@
                 <div class="col-md-4">
                     <label class="form-label">Section</label>
                     <select class="form-select" name="section" required>
-                        <option selected>Choose...</option>
-                        <option>...</option>
+
+                        @foreach ($sec_data as $view_sec_data)
+                        <option>{{$view_sec_data->doc_sec_name}}</option>
+                        @endforeach
+
                     </select>
                 </div>
 

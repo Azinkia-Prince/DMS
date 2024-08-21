@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.custom-layouts')
 
 @section('doctors-list')
     <div class="container">
@@ -7,29 +8,12 @@
                 <a class="btn btn-outline-primary" href="/add-doctor" role="button">Add New Doctor</a>
             </div>
         </div><br>
+        
         <div class="row">
             <div class="col">
                 <table class="table">
 
-                    {{-- Data Change Status Alert --}}
-
-
-                    @if (Session::has('success'))
-                        <div
-                            class="alert alert-success alert-dismissible fade show d-flex justify-content-between align-items-center">
-                            {{ Session::get('success') }}
-                            <i data-bs-dismiss="alert" class="fa-solid fa-circle-xmark text-danger"
-                                style="cursor: pointer;"></i>
-                        </div>
-                    @elseif(Session::has('danger'))
-                        <div
-                            class="alert alert-danger alert-dismissible fade show d-flex justify-content-between align-items-center">
-                            {{ Session::get('danger') }}
-                            <i data-bs-dismiss="alert" class="fa-solid fa-circle-xmark text-danger"
-                                style="cursor: pointer;"></i>
-                        </div>
-                    @endif
-
+                    @yield('status-alert')
 
                     <tr>
                         <th>#</th>

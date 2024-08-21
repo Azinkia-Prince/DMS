@@ -11,7 +11,7 @@
             {{-- CSRF Field --}}
 
             <div class="col-md-6">
-                <labelclass="form-label">Doctor Name</label>
+                <label class="form-label">Doctor Name</label>
                 <input type="text" class="form-control" name="name" value="{{$to_be_edited->name}}" required>
             </div>
             <div class="col-md-6">
@@ -31,9 +31,9 @@
                 <label class="form-label">Section</label>
                 <select class="form-select" name="section" required>
                     <option selected>{{$to_be_edited->section}}</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
+                    @foreach ($sec_data as $view_sec_data)
+                    <option value="">{{$view_sec_data->doc_sec_name}}</option>
+                    @endforeach
                 </select>
             </div>
 

@@ -25,5 +25,8 @@ Route::get('/add-doctor', [App\Http\Controllers\HomeController::class, 'addDocto
 Route::post('/submit-doctor', [App\Http\Controllers\HomeController::class, 'storeDoctor']);
 Route::get('/doctors/{id}/delete', [App\Http\Controllers\HomeController::class, 'deleteDoctor']);
 Route::get('/doctors/{id}/edit', [App\Http\Controllers\HomeController::class, 'editDoctor']);
+Route::get('/doctors/sections', [App\Http\Controllers\HomeController::class, 'view_Doc_Section']);
+Route::post('/doctors/sections/add', [App\Http\Controllers\HomeController::class, 'add_doc_section']);
+
 
 
