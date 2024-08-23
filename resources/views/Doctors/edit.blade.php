@@ -4,7 +4,7 @@
     <div class="row">
         <card style="font-size: 20px" class="btn btn-success">Update Doctor Details</card>
 
-        <form action="/submit-doctor" method="POST" class="row g-3">
+        <form action="/doctors/{{$to_be_edited->id}}/update" method="POST" class="row g-3">
 
             {{ csrf_field() }}
 
@@ -32,7 +32,7 @@
                 <select class="form-select" name="section" required>
                     <option selected>{{$to_be_edited->section}}</option>
                     @foreach ($sec_data as $view_sec_data)
-                    <option value="">{{$view_sec_data->doc_sec_name}}</option>
+                    <option>{{$view_sec_data->doc_sec_name}}</option>
                     @endforeach
                 </select>
             </div>

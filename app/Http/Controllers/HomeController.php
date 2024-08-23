@@ -51,15 +51,13 @@ class HomeController extends Controller
 
     }
 
-    public function updateDoctor(){
+    public function updateDoctor(Request $request,$id){
+        $to_be_updated = addDoctor::find($id);
+        $updated = $request->all();
+        $to_be_updated -> update($updated);
+        return redirect('/doctors')->with('success','Updated doctor details successfully !');
 
     }
-
-    // public function deleteDoctor(){
-       
-    //     return back()->with('danger','Doctor Deleted Successfully');
-
-    // }
 
     public function editDoctor($id){
         $to_be_edited = addDoctor::find($id);
@@ -77,7 +75,7 @@ class HomeController extends Controller
 
     public function view_doc_section(){
         $sec_data=doc_sec_model::all();
-        return view('Doctors.sections',compact('sec_data'));
+        return view('Manage.sections',compact('sec_data'));
 
     }
 
@@ -88,8 +86,12 @@ class HomeController extends Controller
 
     }
 
-    public function doc_sec_view(){
-        
+    public function delete_doc_sec($id){
+
+        $dlt_doc_sec = doc_sec_model::find($id);
+        $dlt_doc_sec -> delete();
+        return back()->with('danger','Section Deleted Successfully');
+
     }
 
  

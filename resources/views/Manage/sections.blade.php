@@ -50,12 +50,27 @@
                     <tr>
                         <th>#</th>
                         <th>Doctor Section</th>
+                        <th class="text-center">Action</th>
                     </tr>
 
                     @foreach ($sec_data as $key=>$view_sec_data)
                     <tr>
                         <td>{{++$key}}</td>
                         <td>{{$view_sec_data->doc_sec_name}}</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a href="/doctors/sections/{{ $view_sec_data->id }}/edit" class="btn btn-warning">Update</a>
+
+                                <a href="#" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#deleteConfirmation"
+                                    onclick="setModalUrl('/doctors/sections/{{ $view_sec_data->id }}/delete')">Delete</a>
+
+
+                                @yield('modal-delete')
+
+
+                            </div>
+                        </td>
                     </tr>
                         
                     @endforeach

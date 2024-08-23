@@ -42,42 +42,7 @@
                                         onclick="setModalUrl('/doctors/{{ $view_doctor_info->id }}/delete')">Delete</a>
 
 
-                                    <!-- Delete Modal -->
-                                    <div class="modal fade" id="deleteConfirmation" data-backdrop="static" tabindex="-1"
-                                        role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="confirmationModalLabel">Confirm Deletion
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    </button>
-                                                </div>
-
-                                                <div class="modal-body">
-                                                    Do you really want to delete?
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
-                                                    <button type="button" class="btn btn-danger" id="confirmButton">Yes,
-                                                        Delete</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- delete button script --}}
-
-                                    <script>
-                                        function setModalUrl(url) {
-                                            document.getElementById("confirmButton").onclick = function() {
-                                                window.location.href = url;
-                                            };
-                                        }
-                                    </script>
+                                    @yield('modal-delete')
 
 
                                 </div>
@@ -89,8 +54,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

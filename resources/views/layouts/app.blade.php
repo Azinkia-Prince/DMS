@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Diagnostic Management System') }}
@@ -35,12 +35,12 @@
                     <ul class="navbar-nav ms-5">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                               Records
+                               Manage
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/doctors/sections">Doctor Sections</a>
-                                <a class="dropdown-item" href="#">Demo</a>
+                                <a class="dropdown-item" href="/test-list">Test List</a>
                                 <a class="dropdown-item" href="#">Demo</a>
                             </div>
                         </li>
@@ -131,6 +131,8 @@
             </div>
         </nav>
 
+        <div style="height: 70px;"></div>
+
         <main class="py-4">
             @yield('content')
             @yield('doctors-list')
@@ -138,6 +140,9 @@
             @yield('edit-doctor')
             @yield('doc-section')
             @yield('status-alert')
+            @yield('modal-delete')
+            @yield('test-list')
+            @yield('test-list-add')
         </main>
     </div>
 </body>
