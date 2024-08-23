@@ -64,7 +64,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="/submit-doctor" method="POST" class="row g-3">
+                <form action="/submit-test-list" method="POST" class="row g-3">
 
                     {{ csrf_field() }}
     
@@ -72,23 +72,34 @@
     
                     <div class="col-md-6">
                         <labelclass="form-label">Test Name</label>
-                        <input type="text" class="form-control" name="name" required>
+                        <input type="text" class="form-control" name="test_name" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Test Group</label>
-                        <input type="text" class="form-control" name="number" required>
+                        <input type="text" class="form-control" name="test_group">
                     </div>
                     <div class="col-6">
                         <label class="form-label">Test Section</label>
-                        <input type="text" class="form-control" name="location" required>
+                        <select class="form-select" name="test_section" required>
+
+                            @php
+                                $sec_data = App\Models\doc_sec_model::all();
+                            @endphp
+
+                            @foreach ($sec_data as $view_sec_data)
+                            <option >{{$view_sec_data->doc_sec_name}}</option>
+                                
+                            @endforeach
+    
+                        </select>
                     </div>
                     <div class="col-6">
                         <label class="form-label">Test Charge</label>
-                        <input type="number" class="form-control" name="specialist" required>
+                        <input type="number" class="form-control" name="test_charge" required>
                     </div>
                     <div class="col-6">
                         <label class="form-label">Referrer Fee</label>
-                        <input type="number" class="form-control" name="specialist" required>
+                        <input type="number" class="form-control" name="referrer_fee" required>
                     </div>
     
     

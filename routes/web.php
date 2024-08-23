@@ -34,6 +34,7 @@ Route::post('/doctors/sections/add', [App\Http\Controllers\HomeController::class
 Route::get('/doctors/sections/{id}/delete', [App\Http\Controllers\HomeController::class, 'delete_doc_sec']);
 //test-list
 Route::get('/test-list',[App\Http\Controllers\testController::class, ('test_list')]);
+Route::post('/submit-test-list',[App\Http\Controllers\testController::class, ('submit_test_list')]);
 
 
 
